@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<data>
+	    <record>
+	        <name>Copernica</name>
+	        <address>Wilhelminastraat 1</address>
+	        <city>Haarlem</city>
+	        <email>info@copernica.com</email>
+	        <telephone>+31237510500</telephone>
+	    </record>
+	    <record>
+	        <name>Sofit Wellness</name>
+	        <address>Wilhelminastraat 1</address>
+	        <city>Haarlem</city>
+	        <email>info@sofit.nl</email>
+	        <telephone>+31237510501</telephone>
+	    </record>
+	    <record>
+	        <name>Other Company</name>
+	        <address>Example street 11</address>
+	        <city>Amsterdam</city>
+	        <email>info@company.nl</email>
+	        <telephone>+312012345678</telephone>
+	    </record>
+	</data>

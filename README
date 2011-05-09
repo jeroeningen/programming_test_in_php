@@ -1,0 +1,16 @@
+This webapplication uses a really simple version of the MVC-pattern.
+With 'a really simple version' I mean, a lot of features are not implemented. This is because I do not need them for now.
+
+This webapplication has three main folders:
+- app, containing the views and logic;
+- lib, containing the aditional libraries;
+- public, containing files that may be accessed by everyone.
+Theoratically, you do not have to change code in the 'lib' directory to extend the web application. 
+In reality you will have to, because this is a very limited implementation of the MVC pattern.
+
+Notes:
+This webapplication assumes that you have enabled the Rewrite engine on your Apache webserver. 
+According to the website of Copernica, the Rewrite engine is enabled. 
+
+Known bugs
+- Variables which are set in the controller are not accessible in the view, so I need to use the session or write a file to the filesystem.
