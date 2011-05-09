@@ -1,7 +1,7 @@
 <?php 
+	$filter = new Filter();
 	$session = new Session();
-	
-	$records = $session->get('records');
+	$records = $filter->retrieve_xml($session->get('xml_file'));
 ?>
 <h1>Remove doubles</h1>
 <p>
@@ -10,7 +10,7 @@
 	Use the checkboxes to specify the field or the combinatation of fields that should be unique. 
 </p>
 <?php 
-	$form->create('filter', 'xml_file', array('id' => 'filter_form'));
+	$form->create('filter', 'xml_files/result', array('id' => 'filter_form'));
 	foreach (array_keys($records[0]) as $key) {
 		echo '<div class="filter_form_inputs">';
 		$form->checkbox('field[]', array('class' => 'remove_doubles', 'value' => $key));

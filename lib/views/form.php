@@ -13,7 +13,7 @@
 		 */
 		function create($name, $action, $html = array()) {
 			$this->name = $name;
-			echo "<form name=\"$name\" action=\"$action\" method=\"POST\"" .
+			echo "<form name=\"$name\" action=\"" . RELATIVE_ROOT . $action ."\" method=\"POST\"" .
 			((!empty($html['multipart']) && $html['multipart']) ? " enctype=\"multipart/form-data\"" : "") .
 			(!empty($html['id']) ? " id=\"" . $html['id'] . "\"" : "")
 			. ">";

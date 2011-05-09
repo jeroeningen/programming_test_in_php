@@ -11,7 +11,7 @@
 		}
 		
 		function create_link($filename) {
-			echo "<link href=\"stylesheets/$filename.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />";
+			echo "<link href=\"" . RELATIVE_ROOT . "stylesheets/$filename.css\" media=\"screen\" rel=\"stylesheet\" type=\"text/css\" />";
 		}
 	}
 ?>

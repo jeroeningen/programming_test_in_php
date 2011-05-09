@@ -14,7 +14,7 @@
 		
 		//actually create the javascript tag
 		function create_tag($filename) {
-			echo "<script src=\"javascripts/$filename.js\" type=\"text/javascript\"></script>";
+			echo "<script src=\"" . RELATIVE_ROOT . "javascripts/$filename.js\" type=\"text/javascript\"></script>";
 		}
 	}
 ?>

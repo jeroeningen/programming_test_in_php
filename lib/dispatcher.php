@@ -1,23 +1,20 @@
 <?php 
 	class Dispatcher {
 		function dispatch() {
+			if (empty($_REQUEST['url'])) {
+				$controller_and_view = array('root', 'index');
+			} else {
+				$controller_and_view = explode("/", $_REQUEST['url']);
+			}
+			$controller_name = $controller_and_view[0];
 			//include the base controller
 			include ROOT . "lib/controllers/controller.php";
-			include ROOT . "app/controllers/application_controller.php";
 			
-			if (empty($_REQUEST['url'])) {
-				$controller_name = "root";
-			} else {
-				$controller_name = $_REQUEST['url'];
-			}
-			//include the controller and the model
+			//include the controller
 			include ROOT . "app/controllers/" . $controller_name . "_controller.php";
-			if (file_exists(ROOT . "app/models/" . $controller_name . ".php")) {
-				include ROOT . "app/models/" . $controller_name . ".php";
-			}
-			$controller_name = $controller_name . "Controller";
+			$controller_name = ($controller_name . "Controller");
 			$controller = new $controller_name;
-			$content = $controller->index();
+			$content = call_user_func(array($controller, $controller_and_view[1]));
 			
 			if (ajax_request()) {
 				echo $content;
@@ -26,11 +23,9 @@
 				header("Content-type: text/xml");
 				echo $content;
 			} else {
-				//include the basic vars for the view
-				include ROOT . 'lib/views/basics.php';
-				
+				//include the basic vars for the view and
 				//include the layout if it is a 'normal' request
-				include ROOT . "app/views/layouts/" . $controller->layout . ".php";
+				include ROOT . 'lib/views/basics.php';
 			}
 		}
 	}

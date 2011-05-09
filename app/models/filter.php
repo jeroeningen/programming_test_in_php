@@ -1,9 +1,33 @@
 <?php 
 	class Filter {
+		
+		/**
+		 * 
+		 * Save the xml file to the temp dir.
+		 * @param string $file
+		 * @return string $path
+		 */
+		function save_file($file) {
+			$filename = rand() . $file['name']['xml_file'];
+			move_uploaded_file($file['tmp_name']['xml_file'], TMP_DIR . $filename);
+			return TMP_DIR . $filename;
+		}
+		
+		/**
+		 * 
+		 * Remove the xml file from the temp dir
+		 * @param $file
+		 * 
+		 */
+		function remove_file($file) {
+			unlink($file);
+		}
+		
 		/**
 		 * 
 		 * Check wether the given file is an xml file based on the extension and the type
 		 * @param $file
+		 * @return boolean
 		 */
 		function is_xml($file) {
 			if (end(explode(".", $file['name']['xml_file'])) != "xml" ||
@@ -18,9 +42,10 @@
 		 * 
 		 * Retrieve the xml as an array
 		 * @param $file
+		 * * @return mixed records
 		 */
 		function retrieve_xml($file) {
-			$xml = (simplexml_load_file($file['tmp_name']['xml_file']));
+			$xml = (simplexml_load_file($file));
 			$records = array();
 			foreach($xml->children() as $child => $node) {
 				$record = (array) $node;
@@ -34,8 +59,10 @@
 		 * Filter the given xml file for unique records
 		 * @param $xml
 		 * @param $filters
+		 * @return mixed $records
 		 */
-		function filter_xml($records, $filters) {
+		function filter_xml($file, $filters) {
+			$records = $this->retrieve_xml($file);
 			if ($filters == '') {
 				return $records;
 			} else {
@@ -72,6 +99,7 @@
 		 * 
 		 * Return the records as Xml
 		 * @param $records
+		 * @return xml $xml
 		 */
 		function create_xml($records) {
 			//before creating new xml, first filter the xml

@@ -1,4 +1,12 @@
 <?php 
+	//include the application model
+	include ROOT . "app/controllers/application_controller.php";
+	
+	//include the model
+	if (file_exists(ROOT . "app/models/" . $controller_name . ".php")) {
+		include ROOT . "app/models/" . $controller_name . ".php";
+	}
+	
 	class Controller {
 		/**
 		 * 

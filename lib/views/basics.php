@@ -14,4 +14,7 @@
 	//create the html object
 	include 'html.php';
 	$html = new Html();
+
+	include ROOT . "app/views/layouts/" . $controller->layout . ".php";
+	
 ?>
