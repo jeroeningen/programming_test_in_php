@@ -24,6 +24,12 @@
 		 */
 		var $params = array();
 		
+		/**
+		 * 
+		 * Set the filename of the layout
+		 */
+		var $layout = 'layout';
+		
 		function __construct() {
 			$this->uploaded_file = $_FILES;
 			

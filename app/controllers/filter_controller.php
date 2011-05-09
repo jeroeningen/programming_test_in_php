@@ -1,5 +1,5 @@
 <?php 
-	class FilterController extends Controller {
+	class FilterController extends ApplicationController {
 		function index() {
 			$filter = new Filter();
 			//handles the AJAX request

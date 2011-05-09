@@ -15,6 +15,4 @@
 	 */
 	ini_set('display_errors', '1');
 	
-	//include the basic vars for the view
-	include ROOT . 'lib/views/basics.php';
 ?>
