@@ -10,7 +10,7 @@
 	  		<div id="header">
 	  			<div id="logo">
 	  			<?php 
-	  				$html->image("logo.jpg");
+	  				$html->link($html->image("logo.jpg", array('in_anchor' => true)), "/");
 	  			?>
 	  			</div>
 	  			<div id="menu"></div>

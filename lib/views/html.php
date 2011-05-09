@@ -11,9 +11,23 @@
 			echo "<a href=\"" . RELATIVE_ROOT . "$url\">$name</a>";
 		}
 		
-		function image($url) {
+		/**
+		 * 
+		 * Create an image tag
+		 * @param string $url
+		 * @param array $options
+		 * 
+		 * Possible: options
+		 * in_anchor: Set to true if the image tag is part of an anchor
+		 */
+		function image($url, $options = array()) {
 			$url = $this->url_for($url);
-			echo "<img src=\"" . RELATIVE_ROOT . "images/$url\" />";
+			$image = "<img src=\"" . RELATIVE_ROOT . "images/$url\" />";
+			if (!empty($options['in_anchor'])) {
+				return $image;
+			} else {
+				echo $image;
+			}
 		}
 		
 		function url_for($url) {
