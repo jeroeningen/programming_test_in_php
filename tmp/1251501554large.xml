@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<data>
+	    <record>
+	        <name>Copernica</name>
+	        <address>Wilhelminastraat 1</address>
+	        <city>Haarlem</city>
+	        <email>info@copernica.com</email>
+	        <telephone>+31237510500</telephone>
+	    </record>
+	    <record>
+	        <name>Sofit Wellness</name>
+	        <address>Wilhelminastraat 1</address>
+	        <city>Haarlem</city>
+	        <email>info@sofit.nl</email>
+	        <telephone>+31237510501</telephone>
+	    </record>
+	    <record>
+	        <name>Copernica Amsterdam</name>
+	        <address>Wilhelminastraat 1</address>
+	        <city>Amsterdam</city>
+	        <email>info@copernica.com</email>
+	        <telephone>+31203445566</telephone>
+	    </record>
+	    <record>
+	        <name>Jottum BV</name>
+	        <address>Jodebreestraat 1</address>
+	        <city>Amsterdam</city>
+	        <email>info@jottum.nl</email>
+	        <telephone>+31203445566</telephone>
+	    </record>
+	    <record>
+	        <name>Other Company</name>
+	        <address>Example street 11</address>
+	        <city>Amsterdam</city>
+	        <email>info@company.nl</email>
+	        <telephone>+312012345678</telephone>
+	    </record>
+	    <record>
+	        <name>And Another BV</name>
+	        <address>Example street 12</address>
+	        <city>Apeldoorn</city>
+	        <email>info@another.nl</email>
+	        <telephone>+3171876543</telephone>
+	    </record>
+	</data>
