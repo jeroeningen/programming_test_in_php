@@ -11,6 +11,7 @@ Theoratically, you do not have to change code in the 'lib' directory to extend t
 In reality you will have to, because this is a very limited implementation of the MVC pattern.
 
 Notes:
+- You can find XML files to use for testing purposes in the directory public/xml
 - This webapplication assumes that you have enabled the Rewrite engine on your Apache webserver. 
 According to the website of Copernica, the Rewrite engine is enabled. 
 - When you upload a file, please make sure the webserver does have access to the tmp directory.
