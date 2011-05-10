@@ -1,11 +1,6 @@
 <?php 
 	//include the application model
-	include ROOT . "app/controllers/application_controller.php";
-	
-	//include the model
-	if (file_exists(ROOT . "app/models/" . $controller_name . ".php")) {
-		include ROOT . "app/models/" . $controller_name . ".php";
-	}
+	include APP_DIR . "controllers/application_controller.php";
 	
 	class Controller {
 		/**
@@ -16,9 +11,9 @@
 		
 		/**
 		 * 
-		 * set the session in this variable
+		 * set the components in this variable
 		 */
-		var $session;
+		var $components;
 		
 		/**
 		 * 
@@ -38,6 +33,12 @@
 		 */
 		var $layout = 'layout';
 		
+		/**
+		 * 
+		 * Set the models to include
+		 */
+		var $models;
+
 		function __construct() {
 			$this->uploaded_file = $_FILES;
 			
@@ -45,9 +46,17 @@
 
 			$this->params = array_merge($_POST, $_GET);
 			
-			//include the session component
-			include ROOT . 'lib/components/session.php';
-			$this->session = new Session();
+			//include the components
+			if (!empty($this->components)) {
+				foreach($this->components as $component)
+				include LIB_DIR . "components/$component.php";
+			}
+						
+			//include the specified models
+			if (!empty($this->models)) {
+				foreach($this->models as $model)
+				include APP_DIR . "models/$model.php";
+			}
 		}
 		
 		/**
@@ -57,7 +66,7 @@
 		 */
 		function render($view) {
 			$data = 'test';
-			return file_get_contents(ROOT . "app/views/" . strtolower(str_replace("Controller", "", get_called_class())) . "/$view.php");
+			return file_get_contents(APP_DIR . "views/" . strtolower(str_replace("Controller", "", get_called_class())) . "/$view.php");
 		}
 		
 	}

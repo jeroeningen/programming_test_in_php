@@ -15,6 +15,6 @@
 	include 'html.php';
 	$html = new Html();
 
-	include ROOT . "app/views/layouts/" . $controller->layout . ".php";
+	include APP_DIR . "views/layouts/" . $controller->layout . ".php";
 	
 ?>
