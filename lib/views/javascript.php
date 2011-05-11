@@ -1,6 +1,10 @@
 <?php
 	class Javascript {
-		//create javascript tag(s)
+		/**
+		 * 
+		 * Create the javascript tag
+		 * @param mixed $filenames
+		 */
 		function tag($filenames) {
 			if (is_array($filenames)) {
 				foreach($filenames as $filename) {

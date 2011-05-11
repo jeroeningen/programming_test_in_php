@@ -1,5 +1,10 @@
 <?php
 	class Stylesheet{
+		/**
+		 * 
+		 * Create the stylesheet link
+		 * @param mixed $stylesheets
+		 */
 		function link($stylesheets) {
 			if (is_array($stylesheets)) {
 				foreach($stylesheets as $stylesheet) {

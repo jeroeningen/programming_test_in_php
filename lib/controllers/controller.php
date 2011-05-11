@@ -42,8 +42,9 @@
 			
 			//include the specified models
 			if (!empty($this->models)) {
-				foreach($this->models as $model)
-				include APP_DIR . "models/$model.php";
+				foreach($this->models as $model) {
+					include APP_DIR . "models/$model.php";
+				}
 			}
 		}
 		
@@ -53,7 +54,6 @@
 		 * @param string $view
 		 */
 		function render($view) {
-			$data = 'test';
 			return file_get_contents(APP_DIR . "views/" . strtolower(str_replace("Controller", "", get_called_class())) . "/$view.php");
 		}
 		

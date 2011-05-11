@@ -5,6 +5,7 @@
 		//filter the xml file
 		function filter() {
 			$filter = new $this->models[0];
+			
 			//handles the AJAX request
 			if ($this->ajax) {
 				$file = $this->params['xml']['filename'];

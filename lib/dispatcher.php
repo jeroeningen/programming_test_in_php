@@ -23,8 +23,10 @@
 				header("Content-type: text/xml");
 				echo $content;
 			} else {
-				//include the basic vars for the view and
-				//include the layout if it is a 'normal' request
+				/**
+				 * include the basic vars for the view and
+				 * include the layout if it is a 'normal' request
+				 */
 				include LIB_DIR . 'views/basics.php';
 			}
 		}
