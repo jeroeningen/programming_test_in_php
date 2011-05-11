@@ -39,6 +39,16 @@
 		
 		/**
 		 * 
+		 * Create a hidden field tag
+		 * @param string $field
+		 * @param string $html_attributes
+		 */
+		function hidden($field, $html_attributes) {
+			return $this->input_tag($field, 'hidden', $html_attributes);
+		}
+		
+		/**
+		 * 
 		 * Create a label tag
 		 * @param string $field
 		 */

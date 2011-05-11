@@ -11,12 +11,6 @@
 		
 		/**
 		 * 
-		 * set the components in this variable
-		 */
-		var $components;
-		
-		/**
-		 * 
 		 * Set if it is an Ajax request
 		 */
 		var $ajax;
@@ -37,7 +31,7 @@
 		 * 
 		 * Set the models to include
 		 */
-		var $models;
+		var $models = array();
 
 		function __construct() {
 			$this->uploaded_file = $_FILES;
@@ -46,12 +40,6 @@
 
 			$this->params = array_merge($_POST, $_GET);
 			
-			//include the components
-			if (!empty($this->components)) {
-				foreach($this->components as $component)
-				include LIB_DIR . "components/$component.php";
-			}
-						
 			//include the specified models
 			if (!empty($this->models)) {
 				foreach($this->models as $model)

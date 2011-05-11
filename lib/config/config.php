@@ -1,7 +1,4 @@
 <?php
-	//start the session
-	session_start();
-
 	//set the constants for the application
 	include 'constants.php';
 	

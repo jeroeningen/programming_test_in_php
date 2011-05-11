@@ -4,18 +4,17 @@
 		
 		//filter the xml file
 		function filter() {
-			$session = new Session();
 			$filter = new $this->models[0];
 			//handles the AJAX request
 			if ($this->ajax) {
-				$file = $session->get('xml_file');
+				$file = $this->params['xml']['filename'];
 				$records = $filter->retrieve_xml($file);
-				return count($records) - count($filter->filter_xml($file, !empty($this->params['filter']['field']) ? $this->params['filter']['field'] : ''));
+				return count($records) - count($filter->filter_xml($file, !empty($this->params['xml']['field']) ? $this->params['xml']['field'] : ''));
 			} else {
 				$file = $this->uploaded_file['xml'];
 				if ($filter->is_xml($file)) {
-					//Save the file to the tmp dir and store the filename in the session
-					$session->add('xml_file', $filter->save_file($file));
+					//Save the file to the tmp dir and set the filename as a parameter
+					$this->params['xml']['filename'] = $filter->save_file($file);
 					return $this->render(__FUNCTION__);
 				} else {
 					return $this->render('error');
@@ -25,13 +24,11 @@
 		
 		//create the result for the filtered xml file
 		function result() {
-			$session = new Session();
 			$filter = new $this->models[0];
-			$filtered_records = $filter->filter_xml($session->get('xml_file'), !empty($this->params['filter']['field']) ? $this->params['filter']['field'] : '');
+			$filtered_records = $filter->filter_xml($this->params['xml']['filename'], !empty($this->params['xml']['field']) ? $this->params['xml']['field'] : '');
 			
-			//after use, delete the file and destroy the session
-			$filter->remove_file($session->get('xml_file'));
-			$session->destroy();
+			//after use, delete the file
+			$filter->remove_file($this->params['xml']['filename']);
 			
 			return $filter->create_xml($filtered_records);
 		}
